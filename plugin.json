@@ -1,0 +1,26 @@
+{
+    "id": "com.rr250.message-transfer-to-slack",
+    "name": "Message Transfer to Slack",
+    "description": "description",
+    "version": "0.0.1",
+    "server": {
+      "executables": {
+          "linux-amd64": "server/dist/plugin-linux-amd64",
+          "darwin-amd64": "server/dist/plugin-darwin-amd64",
+          "windows-amd64": "server/dist/plugin-windows-amd64.exe"
+      }
+    },
+    "settings_schema": {
+        "settings": [{
+            "key": "ChannelIDList",
+            "display_name": "Channel ID List",
+            "type": "text",
+            "help_text": "Channel ID List separated whose messages have to be sent to slack"
+        },{
+            "key": "HookURL",
+            "display_name": "Slack Incoming Webhook URL",
+            "type": "text",
+            "help_text": "Enable slack incoming webhook and paste the url here"
+        }]
+    }
+}
