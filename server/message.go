@@ -16,7 +16,7 @@ import (
 // OnActivate register the plugin command
 func (p *Plugin) MessageHasBeenPosted(c *plugin.Context, post *model.Post) {
 	configuration := p.getConfiguration()
-	if p.stringInSlice(post.ChannelId, strings.Split(configuration.ChannelIDList, ",")) && post.RootId == "" && post.Message[strings.LastIndex(post.Message, ",")+1:] == "admin." && post.Message[strings.LastIndex(post.Message, ",")+1:] == "channel." {
+	if p.stringInSlice(post.ChannelId, strings.Split(configuration.ChannelIDList, ",")) && post.RootId == "" && post.Message[strings.LastIndex(post.Message, ",")+1:] != "admin." && post.Message[strings.LastIndex(post.Message, ",")+1:] != "channel." {
 		user, err := p.API.GetUser(post.UserId)
 		if err != nil {
 			p.API.LogInfo("Unable to get User" + err.Error())
